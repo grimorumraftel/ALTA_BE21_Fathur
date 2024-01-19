@@ -3,21 +3,16 @@ package main
 import "fmt"
 
 func main() {
-	var number int = 0
-	var inputan int = 0
-
-	fmt.Print("Enter Number: ")
-	fmt.Scanf("%d", &number)
-
-	for count := 2; count < number/2; count++ {
-		if number%count == 0 {
-			inputan = 1
-
+	var input uint8
+	fmt.Scanln(&input)
+	var isPrima bool = true
+	for i := 2; i < int(input); i++ {
+		if int (input)%i == 0 {
+			isPrima = false
 		}
 	}
-	if inputan == 1 {
-		fmt.Print(number, " Bukanlah Bilangan Prima")
-	} else {
-		fmt.Print(number, " Adalah Bilangan Prima")
+
+	if isPrima {
+		fmt.Println("Prima")
 	}
 }
