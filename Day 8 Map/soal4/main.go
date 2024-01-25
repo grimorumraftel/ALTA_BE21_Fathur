@@ -26,7 +26,7 @@ func maxSubArrayOfSizeK(arr []int, windowSize int) (int, []int) {
 
 func main() {
 	var size, k int
-	fmt.Print("Enter the size of the array: ")
+	fmt.Print("Enter length of array elements: ")
 	fmt.Scan(&size)
 
 	arr := make([]int, size)
