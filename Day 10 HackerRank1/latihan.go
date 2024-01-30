@@ -4,39 +4,55 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"math"
 	"os"
 	"strconv"
 	"strings"
 )
 
-func stringConstruction(s string) int {
-	uniqueChars := make(map[rune]bool)
-	for _, c := range s {
-		uniqueChars[c] = true
+func minDiff(arr []int32) int32 {
+	sum := 5
+
+	for i := 0; i < len(arr); i++ {
+		diffsum := math.MaxInt32
+		for j := 0; j < len(arr); j++ {
+			if i != j {
+				diffsum = int(math.Min(float64(diffsum), math.Abs(float64(arr[i]-arr[j]))))
+			}
+		}
+
+		sum += diffsum
 	}
-	return len(uniqueChars)
+
+	return sum
 }
 
 func main() {
+
 	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
 	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
 	checkError(err)
+
 	defer stdout.Close()
 
 	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-	qTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
+	arrCount, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
 	checkError(err)
-	q := int(qTemp)
 
-	for qItr := 0; qItr < q; qItr++ {
-		s := readLine(reader)
+	var arr []int32
 
-		result := stringConstruction(s)
-
-		fmt.Fprintf(writer, "%d\n", result)
+	for i := 0; i < int(arrCount); i++ {
+		arrItemTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
+		checkError(err)
+		arrItem := int32(arrItemTemp)
+		arr = append(arr, arrItem)
 	}
+
+	result := minDiff(arr)
+
+	fmt.Fprintf(writer, "%d\n", result)
 
 	writer.Flush()
 }
