@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strconv"
 )
 
 func isPrime(n int64) bool {
@@ -38,5 +39,5 @@ func main() {
 			}
 		}
 	}
-	fmt.Println("Sum of prime numbers:", primeSum)
+	fmt.Println("Sum of prime numbers:", strconv.FormatInt(primeSum, 10))
 }
