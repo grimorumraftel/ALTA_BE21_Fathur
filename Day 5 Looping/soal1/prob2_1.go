@@ -10,5 +10,6 @@ func main() {
 		if number%n == 0 {
 			fmt.Println(n)
 		}
+
 	}
 }

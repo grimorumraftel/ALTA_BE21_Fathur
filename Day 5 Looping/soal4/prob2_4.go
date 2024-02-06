@@ -14,8 +14,8 @@ func isPalindrome(input string) bool {
 
 func main() {
 	var str string
-	fmt.Println("Insert Number / Word")
-	fmt.Scan(&str)
+	fmt.Print("Insert Number / Word")
+	fmt.Scanln(&str)
 	result := isPalindrome(str)
 	if result == true {
 		fmt.Println("Number / Word is Palindrome")
