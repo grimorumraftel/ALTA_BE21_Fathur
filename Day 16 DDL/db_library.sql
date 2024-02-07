@@ -7,8 +7,8 @@ CREATE TABLE Buku(
 
 CREATE TABLE Users (
 	hp varchar(13) NOT NULL,
-	nama varchar(13) NOT NULL,
-	alamat varchar(13) NOT NULL,
+	nama varchar(50) NOT NULL,
+	alamat varchar(255) NOT NULL,
 	PRIMARY KEY(hp)
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE Peminjaman(
 );
 
 --insert users
-INSERT INTO users (hp,nama,alamat) VALUES ('0851563385787','Fathur Nur Ihsan', 'Jln. Pondok Rumput 1 Gg. Bogo RT 01/12 No.21A');
+INSERT INTO users (hp,nama,alamat) VALUES ('085156385787','Fathur Nur Ihsan', 'Jln. Pondok Rumput 1 Gg. Bogo RT 01/12 No.21A');
 INSERT INTO users (hp,nama,alamat) VALUES ('081294659238','Eka Agustianingsih', 'Cilebut Residence 1 Blok C-14 No.5');
 INSERT INTO users (hp,nama,alamat) VALUES ('08998819826','John Tyson', 'BCC Blok G7 No.19');
 INSERT INTO users (hp,nama,alamat) VALUES ('08998819405','Kevin Stevanus', 'Emerald Village Blok H-9 No.2');
