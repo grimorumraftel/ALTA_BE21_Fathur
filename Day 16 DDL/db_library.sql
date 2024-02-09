@@ -32,15 +32,10 @@ CREATE TABLE Peminjaman(
 	id_buku int NOT NULL,
 	tanggal_pinjam date NOT NULL,
 	tanggal_kembali date NOT NULL,
+	FOREIGN KEY (id_buku) REFERENCES Buku(ID_Buku),
+	FOREIGN KEY (hp) REFERENCES Users(hp),
 	PRIMARY KEY (hp, id_buku)
 );
-
---insert users
-INSERT INTO users (hp,nama,alamat) VALUES ('085156385787','Fathur Nur Ihsan', 'Jln. Pondok Rumput 1 Gg. Bogo RT 01/12 No.21A');
-INSERT INTO users (hp,nama,alamat) VALUES ('081294659238','Eka Agustianingsih', 'Cilebut Residence 1 Blok C-14 No.5');
-INSERT INTO users (hp,nama,alamat) VALUES ('08998819826','John Tyson', 'BCC Blok G7 No.19');
-INSERT INTO users (hp,nama,alamat) VALUES ('08998819405','Kevin Stevanus', 'Emerald Village Blok H-9 No.2');
-INSERT INTO users (hp,nama,alamat) VALUES ('085693200789','Freddy Pasumain', 'Jln. Pegangsaan Timur No.56');
 
 --insert buku
 INSERT INTO BUKU (id_buku, judul, created_at) VALUES ('14045','How to destroy people from inside', CURRENT_TIMESTAMP); 
@@ -48,6 +43,13 @@ INSERT INTO BUKU (id_buku, judul, created_at) VALUES ('14022','How god thinking 
 INSERT INTO BUKU (id_buku, judul, created_at) VALUES ('91152','How to mastery javascript within 100 days', CURRENT_TIMESTAMP); 
 INSERT INTO BUKU (id_buku, judul, created_at) VALUES ('17084','Dark story of Indonesia', CURRENT_TIMESTAMP); 
 INSERT INTO BUKU (id_buku, judul, created_at) VALUES ('72902','Quantum of Supremacy by Michio Kaku', CURRENT_TIMESTAMP); 
+
+--insert users
+INSERT INTO users (hp,nama,alamat) VALUES ('085156385787','Fathur Nur Ihsan', 'Jln. Pondok Rumput 1 Gg. Bogo RT 01/12 No.21A');
+INSERT INTO users (hp,nama,alamat) VALUES ('081294659238','Eka Agustianingsih', 'Cilebut Residence 1 Blok C-14 No.5');
+INSERT INTO users (hp,nama,alamat) VALUES ('08998819826','John Tyson', 'BCC Blok G7 No.19');
+INSERT INTO users (hp,nama,alamat) VALUES ('08998819405','Kevin Stevanus', 'Emerald Village Blok H-9 No.2');
+INSERT INTO users (hp,nama,alamat) VALUES ('085693200789','Freddy Pasumain', 'Jln. Pegangsaan Timur No.56');
 
 --insert genre
 INSERT INTO genre (id_genre, nama_genre, created_at) VALUES ('001','Mystery', CURRENT_TIMESTAMP);
