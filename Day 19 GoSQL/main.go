@@ -12,15 +12,40 @@ func main() {
 	database := config.InitMysql()
 	config.Migrate(database)
 	var input int
+
+	var username, password string
+	var user users.User
 	for input != 99 {
 		printMenu()
 		fmt.Print("Masukkan pilihan:")
 		fmt.Scanln(&input)
 		switch input {
 		case 1:
-			loginUser(database)
+			fmt.Print("Enter username:")
+			fmt.Scanln(&username)
+			fmt.Print("Enter password:")
+			fmt.Scanln(&password)
+			success, err := loginUser(database, username, password)
+			if err != nil {
+				fmt.Println("Error logging in:", err)
+			} else if !success {
+				fmt.Println("Invalid username or password.")
+			} else {
+				fmt.Println("Logged in successfully.")
+			}
 		case 2:
-			registerUser(database)
+			fmt.Print("Enter username:")
+			fmt.Scanln(&user.Username)
+			fmt.Print("Enter password:")
+			fmt.Scanln(&user.Password)
+			success, err := registerUser(database, user)
+			if err != nil {
+				fmt.Println("Error registering:", err)
+			} else if !success {
+				fmt.Println("Registration failed.")
+			} else {
+				fmt.Println("Registered successfully.")
+			}
 		}
 	}
 	fmt.Println("Exited! Thank you")
